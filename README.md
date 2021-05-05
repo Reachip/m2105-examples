@@ -49,7 +49,7 @@
 ### Dans MainWindow
 
 ```csharp
-public ObservableCollection<object> LesClients { get; set; } // Au lieu de object, mettre l'objet en question, par exemple : Client
+public ObservableCollection<object> Foo { get; set; } // Au lieu de object, mettre l'objet en question, par exemple : Client
 
 public MainWindow()
 {
