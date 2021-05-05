@@ -62,7 +62,7 @@ public MainWindow()
 
 ## Style
 
-## Triggers
+### Triggers
 
 On applique un style en fonction d'une valeur (dans l'exemple, un boolean)
 
@@ -81,7 +81,7 @@ On applique un style en fonction d'une valeur (dans l'exemple, un boolean)
 </Window.Resources>
 ```
 
-## ControlTemplate 
+### ControlTemplate 
 
 On applique un validateur qui va vérfier la conforité d'une donnée et appliquer un style en conséquence.
 
