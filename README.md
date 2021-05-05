@@ -59,3 +59,48 @@ public MainWindow()
     bar.SelectedItem = LesClients[0];
 }
 ```
+
+## Style
+
+## Triggers
+
+On applique un style en fonction d'une valeur (dans l'exemple, un boolean)
+
+```xml
+<Window.Resources>
+    <Style TargetType="{x:Type DataGridCell}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=Payee}" Value="False">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Payee}" Value="True">
+                <Setter Property="Background" Value="LightGreen"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</Window.Resources>
+```
+
+## ControlTemplate 
+
+On applique un validateur qui va vérfier la conforité d'une donnée et appliquer un style en conséquence.
+
+On ajoute dans le TextBox : 
+
+```xml
+<TextBox Text="{Binding Nom, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource txtError}">
+```
+
+On créer la resource txtError :
+
+```xml
+<ControlTemplate x:Key="txtError">
+    <StackPanel Orientation="Horizontal">
+        <Border BorderBrush="Red" BorderThickness="1">
+            <AdornedElementPlaceholder x:Name="element"/>
+        </Border>
+        <TextBlock x:Name="tbError" Foreground="Red" Margin="5,0,0,0" FontSize="10pt" Text="{Binding ElementName=element, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"/>
+    </StackPanel>
+</ControlTemplate>
+```
+
